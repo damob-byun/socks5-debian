@@ -35,7 +35,6 @@ function Installation(){
  cd /root
  export DEBIAN_FRONTEND=noninteractive
  apt-get update
- apt-get upgrade -y
  apt-get install wget nano dante-server netcat -y &> /dev/null | echo '[*] Installing SOCKS5 Server...'
  cat <<'EOF'> /etc/danted.conf
 logoutput: /var/log/socks.log
