@@ -8,7 +8,7 @@ function YourBanner(){
 # Edit nyo to
  echo -e " Welcome to my Script"
  echo -e " SOCKS5 Server Installer for Debian"
- echo -e " Script by Bonveio"
+ echo -e " Script by Bonveio And Modified By BJS"
  echo -e " This script is open for Remodification and Redistribution"
  echo -e ""
 }
