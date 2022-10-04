@@ -13,11 +13,16 @@ function YourBanner(){
  echo -e ""
 }
 
-source /etc/os-release
-if [[ "$ID" != 'debian' ]]; then
- YourBanner
- echo -e "[\e[1;31mError\e[0m] This script is for Debian Machine only, exting..." 
- exit 1
+if grep -qs "ubuntu" /etc/os-release; then
+	os="ubuntu"
+	os_version=$(grep 'VERSION_ID' /etc/os-release | cut -d '"' -f 2 | tr -d '.')
+elif [[ -e /etc/debian_version ]]; then
+	os="debian"
+	os_version=$(grep -oE '[0-9]+' /etc/debian_version | head -1)
+else
+	echo "This installer seems to be running on an unsupported distribution.
+Supported distros are Ubuntu, Debian."
+	exit
 fi
 
 if [[ $EUID -ne 0 ]];then
